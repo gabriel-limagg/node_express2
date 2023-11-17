@@ -5,6 +5,10 @@ const path = require("path")
 const app = express()
 
 const caminhoBase = path.join(__dirname, "templates")
+
+app.get('/cadastrar',(requisiçao, resposta) => {
+    resposta.sendFile(`${caminhaBase}/cadastro.html`)
+})
 app.get('/usuario/:id ',(requisiçao, resposta)=>{
 const id = requisiçao.params.id
 console.log(id)
@@ -16,5 +20,5 @@ app.get('/' , (requisiçao, resposta)=>{
 })
 
 app.listen(3000, ()=>{
-    console.log("servidor rodando na porta 3000")
+    console.log("servidor rodando na porta 3000")
 })
