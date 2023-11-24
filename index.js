@@ -6,7 +6,15 @@ const app = express()
 
 const caminhoBase = path.join(__dirname, "templantes")
 
-app.post('/cadstrar/salvar', (requisiçao, respotas)=>)
+app.use(express.urlencoded({
+    extended:true
+}))
+app.use(express.json())
+
+app.post('/cadastrar/salvar', (requisiçao, respotas)=>{
+    const nome =requisiçao.body.nome
+    console.log(`o nome é ${nome}`)
+})
 
 app.get('/cadastrar',(requisiçao, resposta) => {
     resposta.sendFile(`${caminhoBase}/cadastro.html`)
